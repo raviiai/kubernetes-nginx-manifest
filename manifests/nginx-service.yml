@@ -3,12 +3,27 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
-  # loadBalancerSourceRanges: # only when the type is loadbalancer
-  # - 152.58.155.153/32
+  loadBalancerSourceRanges: # only when the type is loadbalancer
+  - 152.58.155.153/32
   selector:
     app: nginx
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: NodePort
+  type: LoadBalancer
+
+
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: my-service
+# spec:
+#   selector:
+#     app: my-app
+#   ports:
+#     - protocol: TCP
+#       port: 80
+#       targetPort: 80
+#   type: LoadBalancer
