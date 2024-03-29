@@ -2,11 +2,19 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: example-ingress
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: nginx-ingress
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+    app.kubernetes.io/version: 1.10.0
+    helm.sh/chart: ingress-nginx-4.10.0
   annotations:
-    nginx.ingress.kubernetes.io/whitelist-source-range: "192.0.2.0/24,10.0.0.0/16"
+    nginx.ingress.kubernetes.io/whitelist-source-range: "152.58.154.39/32"
 spec:
   rules:
-  - host: example.com
+  - host: zycfdfl.example.com
     http:
       paths:
       - path: /
